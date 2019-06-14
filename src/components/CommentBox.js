@@ -12,17 +12,27 @@ const Commentbox = props => {
   };
 
   return (
-    <form
-      onSubmit={e => {
-        onSubmit(e);
-      }}
-    >
-      <h4>Add a Comment</h4>
-      <textarea value={comment} onChange={e => setComment(e.target.value)} />
-      <div>
-        <button>Submit Comment</button>
-      </div>
-    </form>
+    <div>
+      <form
+        onSubmit={e => {
+          onSubmit(e);
+        }}
+      >
+        <h4>Add a Comment</h4>
+        <textarea value={comment} onChange={e => setComment(e.target.value)} />
+        <div>
+          <button>Submit Comment</button>
+        </div>
+      </form>
+      <button
+        className='fetch-comments'
+        onClick={() => {
+          props.fetchComments();
+        }}
+      >
+        Fetch Comments
+      </button>
+    </div>
   );
 };
 
